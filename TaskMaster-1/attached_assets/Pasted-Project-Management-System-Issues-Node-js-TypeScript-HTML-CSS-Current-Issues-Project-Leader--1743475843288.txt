@@ -1,0 +1,53 @@
+Project Management System Issues (Node.js + TypeScript + HTML + CSS)
+Current Issues:
+Project Leader Cannot Add Tasks:
+
+The system does not properly recognize the logged-in user as the leader, preventing them from adding tasks to the project’s to-do list.
+
+Possible session/authentication issues or incorrect leader verification in the backend.
+
+Incorrect Task Assignment Display in Personal To-Do List:
+
+Tasks in the personal to-do list should NOT display "Unassigned" or "Assigned to [Member]".
+
+Only the project’s to-do list should show who the task is assigned to.
+
+Expected Fixes & Behavior:
+✅ Fix Leader Task Creation Issue:
+
+Ensure the backend correctly identifies the project leader based on session/authentication.
+
+The leader must be able to add tasks to the project’s to-do list and assign them to any project member (including themselves).
+
+Debug session handling and verify that API endpoints properly check the user’s role.
+
+✅ Fix Task Assignment Display:
+
+The project’s to-do list should correctly display who each task is assigned to.
+
+The personal to-do list should only show tasks assigned to the logged-in user without displaying "Unassigned" or "Assigned to [Member]".
+
+Potential Fixes & Debugging Steps:
+Check Leader Verification in Backend:
+
+Verify the logic that determines whether the logged-in user is the project leader.
+
+Debug how the project leader role is stored in the session/database and retrieved in API calls.
+
+Ensure Task Assignment Updates Properly:
+
+Check the database schema to confirm that task assignments are stored correctly.
+
+Ensure that when fetching tasks for a user, only their assigned tasks are retrieved for the personal to-do list.
+
+Fix Frontend Display of Assigned Tasks:
+
+Ensure that the UI logic correctly differentiates between the personal and project to-do lists.
+
+Update the project to-do list UI to show the assigned member’s name while keeping the personal to-do list clean (without assignment labels).
+
+Clarification Questions for Fixing:
+How is the project leader role currently determined? (Is it stored in a session, JWT, or database lookup?)
+
+How are tasks currently being retrieved and displayed in both the project and personal to-do lists?
+

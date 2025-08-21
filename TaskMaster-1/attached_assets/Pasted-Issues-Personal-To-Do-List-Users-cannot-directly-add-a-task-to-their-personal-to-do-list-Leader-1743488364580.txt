@@ -1,0 +1,53 @@
+Issues:
+
+Personal To-Do List: Users cannot directly add a task to their personal to-do list.
+
+Leader Self-Assignment: The project leader is unable to assign a task to himself.
+
+Project Count: The number of projects displayed on the personal dashboard does not update dynamically even when a project is active.
+
+Dynamic Updates: The project progress bar and project deletion do not update instantly—they require a page reload.
+
+Task Assignment Details: In the project task list, below the "Assigned to" field, it should also display who assigned the task.
+
+Tech Stack:
+
+Frontend: HTML, CSS, TypeScript
+
+Backend: Node.js
+
+Expected Behavior:
+
+Users should be able to add tasks directly to their personal to-do list.
+
+The project leader must be able to assign tasks to himself, and the system should recognize this.
+
+The personal dashboard should dynamically update the number of active projects.
+
+The project view should update the progress bar and reflect project deletions immediately without needing a reload.
+
+The project task list should show not only who the task is assigned to, but also indicate who assigned the task.
+
+Potential Solutions & Considerations:
+
+Personal To-Do List:
+
+Verify the API endpoint and UI logic for adding personal tasks. Ensure that the correct user ID is passed and saved.
+
+Leader Self-Assignment:
+
+Check the backend role/permission logic to confirm that the project leader is permitted to assign tasks to himself.
+
+Ensure that the request payload for task creation includes proper identification of the leader.
+
+Dynamic Project Count:
+
+Implement real-time updates (using WebSockets, polling, or state management) so that the project count on the dashboard updates automatically when a project becomes active.
+
+Instant UI Updates:
+
+For the progress bar and project deletion, ensure that the frontend listens to state changes or triggers API re-fetches immediately after an action, eliminating the need for a manual page reload.
+
+Task Assignment Details:
+
+Modify the task display logic in the project view to include a field indicating who assigned each task, in addition to the current "Assigned to" information.

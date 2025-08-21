@@ -1,0 +1,63 @@
+Personal Task Insertion: Users are no longer able to directly insert tasks into their personal to-do list.
+
+Project Task Visibility: Not all tasks are visible in the project view; even tasks not assigned to the logged-in user should be visible to all project members.
+
+Project Count Update: The projects count in the personal dashboard does not update automatically even when an active project exists.
+
+Leader Self-Assignment: The project leader is still unable to assign a task to himself within a project.
+
+Task Deletion Behavior: Tasks only appear to be deleted after reloading the page, and then they are removed automatically (i.e., the deletion isn’t reflected immediately in the UI).
+
+Tech Stack: HTML, CSS, TypeScript (frontend) + Node.js (backend)
+
+Expected Behavior:
+
+Personal To-Do List:
+
+Users must be able to add tasks directly to their personal to-do list.
+
+Project Task Visibility:
+
+The project view should display all tasks associated with the project, regardless of who they are assigned to.
+
+Dashboard Project Count:
+
+The project count on the personal dashboard should update dynamically as projects are added, modified, or removed.
+
+Leader Self-Assignment:
+
+The project leader must be able to assign tasks to himself within the project.
+
+Instant Task Deletion:
+
+When a task is deleted, the change should be reflected immediately in the UI without requiring a page reload.
+
+Potential Solutions & Debugging Steps:
+
+Personal Task Insertion:
+
+Verify that the API endpoint for personal task creation is functioning correctly and that the UI logic sends the proper user ID and task details.
+
+Check for any filtering or permission logic that might block personal tasks from being added.
+
+Project Task Visibility:
+
+Adjust the query or API call fetching project tasks so that it returns all tasks, regardless of assignment status.
+
+Update the UI to display the complete task list for the project.
+
+Dynamic Dashboard Count:
+
+Implement real-time updates (using WebSockets, polling, or state management) to update the project count in the dashboard whenever project changes occur.
+
+Leader Self-Assignment:
+
+Debug the role verification logic on the backend to ensure that the leader’s account is recognized correctly when assigning tasks to himself.
+
+Verify that the request payload for task assignment includes proper credentials for self-assignment.
+
+Instant Task Deletion:
+
+Ensure that after a task deletion API call, the frontend immediately updates the UI state without requiring a full page reload.
+
+Check that the deletion event properly triggers a state update or re-fetch of tasks.
